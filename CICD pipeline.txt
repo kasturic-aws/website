@@ -1,0 +1,24 @@
+git clone ssh://git-codecommit.us-west-2.amazonaws.com/v1/repos/MyDemoRepo - command line
+
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html - AWS CLI
+
+1. Created code commit repo.
+2. Create a user in IAM. Generate code commit credentials for user and download credentials file.
+3. Install git on windows
+4. Create a folder in c:\ named cicddemo
+5.Download and install aws cli for windows.
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+6. Go to cd c:\cicddemo
+7. aws configure
+8. To get access key id and secret keys, create access keys for user created in step2.
+9. Enter secret keys and access keys in step 7.
+10. Default region = us-east-1
+11. Default output = json
+12. git clone https://github.com/pravinmenghani1/mydemoapp.git
+13. git Clone "https AWS codecommit repository"
+14. git add . #This will add all files to local repo.
+15. git commit -m "add all files" #This willl commit all files to local repo.
+16. Before commit, you may need to setup your config globally telling who you are. do this.
+17. git config --global user.email "user@gmail.com"
+18. git config --global user.name "username"
+19. git push
