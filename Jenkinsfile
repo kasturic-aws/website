@@ -9,26 +9,17 @@ pipeline {
         }
 
         stage('Build and Publish') {
-            when {
-                anyOf {
-                    branch 'master'
-                    branch 'develop'
-                }
-            }
-
             steps {
                 script {
                     def image = docker.build('website-builder', '.')
                     if (env.BRANCH_NAME == 'master') {
-                        image.run("-p 82:82 -v \$(pwd):/var/www/html -d")
+                        sh "docker run -d -p 82:82 -v ${pwd()}:/var/www/html website-builder"
                     } else if (env.BRANCH_NAME == 'develop') {
-                        // Only build, no publish for develop branch
-                        image.inside('-v \$(pwd):/var/www/html') {
-                            // Do additional tasks if needed
-                        }
+                        sh "docker run --rm -v ${pwd()}:/var/www/html website-builder"
                     }
                 }
             }
         }
     }
 }
+
